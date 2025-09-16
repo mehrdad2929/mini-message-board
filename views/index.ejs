@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>💬 Mini Message Board</h1>
+
+        <div class="messages-container">
+            <% if (messages.length===0) { %>
+                <div class="empty-state">
+                    <h3>No messages yet!</h3>
+                    <p>Be the first to start the conversation.</p>
+                </div>
+                <% } else { %>
+                    <% messages.forEach((msg, index)=> { %>
+                        <div class="message-card" style="animation-delay: <%= index * 0.1 %>s">
+                            <div class="user-avatar">
+                                <%= msg.user.charAt(0) %>
+                            </div>
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <span class="username">
+                                        <%= msg.user %>
+                                    </span>
+                                    <span class="timestamp">
+                                        <%= msg.added.toLocaleDateString() %> at
+                                            <%= msg.added.toLocaleTimeString([], {hour: '2-digit' , minute:'2-digit'})
+                                                %>
+                                    </span>
+                                </div>
+                                <div class="message-text">
+                                    <%= msg.text %>
+                                </div>
+                            </div>
+                        </div>
+                        <% }); %>
+                            <% } %>
+        </div>
+
+        <!-- Floating Action Button -->
+        <a href="/new" class="new-message-btn" title="Write a new message"></a>
+    </div>
+</body>
+
+</html>
