@@ -24,17 +24,17 @@
                     <% messages.forEach((msg, index)=> { %>
                         <div class="message-card" style="animation-delay: <%= index * 0.1 %>s">
                             <div class="user-avatar">
-                                <%= msg.user.charAt(0) %>
+                                <%= msg.username.charAt(0) %>
                             </div>
                             <div class="message-content">
                                 <div class="message-header">
                                     <span class="username">
-                                        <%= msg.user %>
+                                        <%= msg.username %>
                                     </span>
                                     <span class="timestamp">
-                                        <%= msg.added.toLocaleDateString() %> at
-                                            <%= msg.added.toLocaleTimeString([], {hour: '2-digit' , minute:'2-digit'})
-                                                %>
+                                        <%= msg.created_at.toLocaleDateString() %> at
+                                            <%= msg.created_at.toLocaleTimeString([], {hour: '2-digit' ,
+                                                minute:'2-digit'}) %>
                                     </span>
                                 </div>
                                 <div class="message-text">
