@@ -25,3 +25,4 @@ app.listen(PORT, (error) => {
     }
     console.log(`form app - listening on port ${PORT}!`);
 });
+module.exports = app;
